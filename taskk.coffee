@@ -43,6 +43,6 @@ class TaskkAPI
     $.post domain + "/tasks?", {title: title, estimate: estimate, list_id: list_id};
 
   create_list: (title, color) ->
-    $.post domain + "/tasks?", {title: title, color: color};
+    $.post domain + "/lists?", {title: title, color: color};
 
 window.TaskkAPI = TaskkAPI
