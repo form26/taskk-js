@@ -1,5 +1,5 @@
-# Taskk API Javascript wrapper.
-# https://api.taskk.it
+# Taskk API Javascript library.
+# https://api.taskk.it.
 # Taskk API V1
 
 ####################
@@ -12,7 +12,7 @@
 ####################
 
 class TaskkAPI
-  domain = "https://api.taskk.it"
+  domain = "https://api.taskk.it/v1/"
   auth = ""
 
   constructor: (@token) ->
@@ -38,5 +38,11 @@ class TaskkAPI
   #  Get specific list (id)
   get_list: (id) ->
     $.get domain + "lists/" + id +"/" + auth
+    
+  create_task: (title, estimate, list_id) ->
+    $.post domain + "/tasks?", {title: title, estimate: estimate, list_id: list_id};
+
+  create_list: (title, color) ->
+    $.post domain + "/tasks?", {title: title, color: color};
 
 window.TaskkAPI = TaskkAPI
