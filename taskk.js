@@ -37,16 +37,17 @@
     };
 
     TaskkAPI.prototype.create_task = function(title, estimate, list_id) {
-      return $.post(domain + "/tasks?", {
+      return $.post(domain + "tasks/" + auth, {
         title: title,
         estimate: estimate,
         list_id: list_id
       });
     };
 
-    TaskkAPI.prototype.create_list = function(title, color) {
-      return $.post(domain + "/lists?", {
+    TaskkAPI.prototype.create_list = function(title, descriptiong, color) {
+      return $.post(domain + "lists/" + auth, {
         title: title,
+        description: description,
         color: color
       });
     };

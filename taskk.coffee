@@ -38,11 +38,13 @@ class TaskkAPI
   #  Get specific list (id)
   get_list: (id) ->
     $.get domain + "lists/" + id +"/" + auth
-    
+  
+  # create a task (title, estimate, list_id)  
   create_task: (title, estimate, list_id) ->
-    $.post domain + "/tasks?", {title: title, estimate: estimate, list_id: list_id}
+    $.post domain + "tasks/" + auth, {title: title, estimate: estimate, list_id: list_id}
 
-  create_list: (title, color) ->
-    $.post domain + "/lists?", {title: title, color: color}
+  # create a list (title, description, color). Color = Hexidecimal. #FFFFFF
+  create_list: (title, descriptiong, color) ->
+    $.post domain + "lists/" + auth, {title: title, description: description, color: color}
 
 window.TaskkAPI = TaskkAPI
