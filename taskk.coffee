@@ -23,6 +23,10 @@ class TaskkAPI
   ping: ->
     $.get domain + "auth/ping/" + auth
 
+  #  Check if can authenticate
+  login: (login, password) ->
+    $.post domain + "auth/login/" + auth, {login: login, password: password}
+
   #  Get all lists
   get_lists: ->
     $.get domain + "lists/" + auth

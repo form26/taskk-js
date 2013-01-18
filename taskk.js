@@ -20,6 +20,13 @@
       return $.get(domain + "auth/ping/" + auth);
     };
 
+    TaskkAPI.prototype.login = function(login, password) {
+      return $.post(domain + "auth/login/" + auth, {
+        login: login,
+        password: password
+      });
+    };
+
     TaskkAPI.prototype.get_lists = function() {
       return $.get(domain + "lists/" + auth);
     };
