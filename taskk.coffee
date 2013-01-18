@@ -37,11 +37,11 @@ class TaskkAPI
 
   #  Get specific task (id)
   get_task: (id) ->
-    $.get domain + "tasks/" + id +"/" + auth
+    $.get domain + "tasks/" + id + "/" + auth
 
   #  Get specific list (id)
   get_list: (id) ->
-    $.get domain + "lists/" + id +"/" + auth
+    $.get domain + "lists/" + id + "/" + auth
   
   # create a task (title, estimate, list_id)  
   create_task: (title, estimate, list_id) ->
@@ -50,5 +50,21 @@ class TaskkAPI
   # create a list (title, description, color). Color = Hexidecimal. #FFFFFF
   create_list: (title, descriptiong, color) ->
     $.post domain + "lists/" + auth, {title: title, description: description, color: color}
+
+  #  Update specific task (id, params)
+  edit_task: (id, params) ->
+    $.ajax(
+      url: domain + "tasks/" + id + "/" + auth
+      type: "PUT",
+      data: params
+    )
+
+  #  Update specific list (id, params)
+  edit_list: (id, params) ->
+    $.ajax(
+      url: domain + "tasks/" + id + "/" + auth
+      type: "PUT",
+      data: params
+    )
 
 window.TaskkAPI = TaskkAPI
