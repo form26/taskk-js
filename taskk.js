@@ -11,7 +11,7 @@
 
     function TaskkAPI(token) {
       this.token = token;
-      set_token(this.token);
+      this.set_token(this.token);
     }
 
     TaskkAPI.prototype.set_token = function(token) {
