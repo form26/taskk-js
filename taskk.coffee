@@ -17,7 +17,8 @@ class TaskkAPI
 
   constructor: (@token) ->
     # Use token if present.
-    this.set_token(@token)
+    if @token
+      this.set_token(@token)
 
   set_token: (token) ->
     auth = "?token=" + token
