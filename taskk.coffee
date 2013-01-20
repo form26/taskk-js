@@ -20,7 +20,7 @@ class TaskkAPI
     set_token(@token)
 
   set_token: (token) ->
-    auth = "?token=" + @token  if @token
+    auth = "?token=" + token
 
   #  Check if can authenticate
   ping: ->

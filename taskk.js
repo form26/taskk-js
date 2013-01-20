@@ -15,9 +15,7 @@
     }
 
     TaskkAPI.prototype.set_token = function(token) {
-      if (this.token) {
-        return auth = "?token=" + this.token;
-      }
+      return auth = "?token=" + token;
     };
 
     TaskkAPI.prototype.ping = function() {
