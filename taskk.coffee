@@ -8,6 +8,7 @@
 # taskk_api = new TaskkAPI('token')
 # ping = taskk_api.ping()
 # ping.success (data) -> alert(JSON.stringify(data))
+# ping.error (data) -> alert(JSON.stringify(data))
 #
 ####################
 
