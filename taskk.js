@@ -73,7 +73,7 @@
 
     TaskkAPI.prototype.edit_list = function(id, params) {
       return $.ajax({
-        url: domain + "tasks/" + id + "/" + auth,
+        url: domain + "lists/" + id + "/" + auth,
         type: "PUT",
         data: params
       });
