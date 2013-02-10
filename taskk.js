@@ -25,13 +25,13 @@
     };
 
     TaskkAPI.prototype.login = function(login, password) {
-      var basic_auth;
-      basic_auth = "Basic " + login + ":" + password;
       return $.ajax({
-        type: 'POST',
+        type: "POST",
         url: domain + "auth/login/",
         beforeSend: function(xhr) {
-          return xhr.setRequestHeader(“Authorization”, basic_auth);
+          var basic_auth;
+          basic_auth = "Basic " + login + ":" + password;
+          xhr.setRequestHeader("Authorization", basic_auth);
         }
       });
     };
