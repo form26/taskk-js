@@ -54,13 +54,13 @@ class TaskkAPI
   get_list: (id) ->
     $.get domain + "lists/" + id + "/" + auth
   
-  # create a task (title, estimate, list_id)  
-  create_task: (title, estimate, list_id) ->
-    $.post domain + "tasks/" + auth, {title: title, estimate: estimate, list_id: list_id}
+  # create a task (title, estimate, list_id)
+  create_task: (params) ->
+    $.post domain + "tasks/" + auth, params
 
   # create a list (title, description, color). Color = Hexidecimal. #FFFFFF
-  create_list: (title, descriptiong, color) ->
-    $.post domain + "lists/" + auth, {title: title, description: description, color: color}
+  create_list: (params) ->
+    $.post domain + "lists/" + auth, params
 
   #  Update specific task (id, params)
   edit_task: (id, params) ->
