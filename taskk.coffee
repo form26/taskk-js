@@ -73,7 +73,7 @@ class TaskkAPI
   #  Update specific list (id, params)
   edit_list: (id, params) ->
     $.ajax(
-      url: domain + "tasks/" + id + "/" + auth
+      url: domain + "lists/" + id + "/" + auth
       type: "PUT",
       data: params
     )
