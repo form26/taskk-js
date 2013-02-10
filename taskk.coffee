@@ -30,7 +30,13 @@ class TaskkAPI
 
   #  Check if can authenticate
   login: (login, password) ->
-    $.post domain + "auth/login/" + auth, {login: login, password: password}
+    basic_auth = "Basic " + login + ":" + password
+    $.ajax(
+      type: 'POST' 
+      url: domain + "auth/login/"
+      beforeSend: (xhr) ->
+       xhr.setRequestHeader(“Authorization”, basic_auth)
+    )
 
   #  Get all lists
   get_lists: ->
