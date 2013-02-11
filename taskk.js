@@ -3,7 +3,7 @@
   var TaskkAPI;
 
   TaskkAPI = (function() {
-    var auth, domain;
+    var auth, domain, make_base_auth;
 
     domain = "https://api.taskk.it/v1/";
 
@@ -24,13 +24,17 @@
       return $.get(domain + "auth/ping/" + auth);
     };
 
+    make_base_auth = function(user, password) {};
+
     TaskkAPI.prototype.login = function(login, password) {
       return $.ajax({
         type: "POST",
         url: domain + "auth/login/",
         beforeSend: function(xhr) {
-          var basic_auth;
-          basic_auth = "Basic " + login + ":" + password;
+          var basic_auth, hash, tok;
+          tok = login + ":" + password;
+          hash = btoa(tok);
+          basic_auth = "Basic " + hash;
           xhr.setRequestHeader("Authorization", basic_auth);
         }
       });

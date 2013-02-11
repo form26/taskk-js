@@ -28,13 +28,17 @@ class TaskkAPI
   ping: ->
     $.get domain + "auth/ping/" + auth
 
+  make_base_auth = (user, password) ->
+
   #  Check if can authenticate
   login: (login, password) ->
     $.ajax
       type: "POST"
       url: domain + "auth/login/"
       beforeSend: (xhr) ->
-        basic_auth = "Basic #{login}:#{password}"
+        tok = login + ":" + password
+        hash = btoa(tok)
+        basic_auth = "Basic " + hash
         xhr.setRequestHeader "Authorization", basic_auth
         return
 
