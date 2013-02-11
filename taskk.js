@@ -57,18 +57,30 @@
     };
 
     TaskkAPI.prototype.create_task = function(params) {
-      return $.post(domain + "tasks/" + auth, params);
+      return $.ajax({
+        url: domain + "tasks/" + auth,
+        type: "POST",
+        data: JSON.stringify({
+          task: params
+        }),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json"
+      });
     };
 
     TaskkAPI.prototype.create_list = function(params) {
-      return $.post(domain + "lists/" + auth, params);
+      return $.post(domain + "lists/" + auth, JSON.stringify({
+        list: params
+      }));
     };
 
     TaskkAPI.prototype.edit_task = function(id, params) {
       return $.ajax({
         url: domain + "tasks/" + id + "/" + auth,
         type: "PUT",
-        data: params
+        data: JSON.stringify({
+          task: params
+        })
       });
     };
 
@@ -76,7 +88,9 @@
       return $.ajax({
         url: domain + "lists/" + id + "/" + auth,
         type: "PUT",
-        data: params
+        data: JSON.stringify({
+          list: params
+        })
       });
     };
 

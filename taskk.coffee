@@ -60,18 +60,24 @@ class TaskkAPI
   
   # create a task (title, estimate, list_id)
   create_task: (params) ->
-    $.post domain + "tasks/" + auth, params
+    $.ajax(
+      url: domain + "tasks/" + auth
+      type: "POST"
+      data: JSON.stringify({task: params})
+      contentType:"application/json; charset=utf-8"
+      dataType:"json"
+    )
 
   # create a list (title, description, color). Color = Hexidecimal. #FFFFFF
   create_list: (params) ->
-    $.post domain + "lists/" + auth, params
+    $.post domain + "lists/" + auth, JSON.stringify({list: params})
 
   #  Update specific task (id, params)
   edit_task: (id, params) ->
     $.ajax(
       url: domain + "tasks/" + id + "/" + auth
       type: "PUT",
-      data: params
+      data: JSON.stringify({task: params})
     )
 
   #  Update specific list (id, params)
@@ -79,7 +85,7 @@ class TaskkAPI
     $.ajax(
       url: domain + "lists/" + id + "/" + auth
       type: "PUT",
-      data: params
+      data: JSON.stringify({list: params})
     )
 
 window.TaskkAPI = TaskkAPI
