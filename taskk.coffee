@@ -35,6 +35,8 @@ class TaskkAPI
     $.ajax
       type: "POST"
       url: domain + "auth/login/"
+      contentType:"application/json; charset=utf-8"
+      dataType:"json"
       beforeSend: (xhr) ->
         tok = login + ":" + password
         hash = btoa(tok)

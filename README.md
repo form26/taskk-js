@@ -36,7 +36,8 @@ Make sure you include jquery before taskk.js!
 Lets create a taskk.
     
     # Create a task "Do homework" with an estimate of "1m" for list 1234
-    new_task = taskk_api.create_task("Do homework", "1h", 1234)
+    params = {title: "Do homework", estimate: "1m", list_id: 1234}
+    new_task = taskk_api.create_task(params)
     
     # define what to do on success.
     new_task.success (data) -> alert(JSON.stringify(data))

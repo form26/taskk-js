@@ -30,6 +30,8 @@
       return $.ajax({
         type: "POST",
         url: domain + "auth/login/",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
         beforeSend: function(xhr) {
           var basic_auth, hash, tok;
           tok = login + ":" + password;
