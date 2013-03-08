@@ -90,6 +90,15 @@ class TaskkAPI
       data: JSON.stringify({task: params})
     )
 
+  # Complete a task
+  complete_task: (id) ->
+    $.ajax(
+      url: domain + "tasks/" + id + "/complete" + auth
+      type: "PUT"
+      contentType:"application/json; charset=utf-8"
+      dataType:"json"
+    )
+
   #  Update specific list (id, params)
   edit_list: (id, params) ->
     $.ajax(
